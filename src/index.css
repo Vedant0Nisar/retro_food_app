@@ -1,0 +1,99 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 100% 97%;
+    --foreground: 20 14% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 4%;
+
+    --primary: 175 100% 33%;
+    --primary-foreground: 40 100% 97%;
+
+    --secondary: 0 77% 65%;
+    --secondary-foreground: 40 100% 97%;
+
+    --muted: 0 0% 85%;
+    --muted-foreground: 20 14% 35%;
+
+    --accent: 175 100% 80%;
+    --accent-foreground: 175 100% 20%;
+
+    --destructive: 0 77% 65%;
+    --destructive-foreground: 40 100% 97%;
+
+    --border: 20 5% 85%;
+    --input: 20 5% 85%;
+    --ring: 175 100% 33%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-retro-cream text-retro-black font-sans;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  h1, h2, h3, .logo-text {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
+@layer components {
+  .retro-card {
+    @apply bg-white rounded-lg border-2 border-retro-black shadow-[4px_4px_0px_0px_rgba(34,34,34,1)];
+  }
+  
+  .retro-btn {
+    @apply font-medium py-2 px-4 rounded-md transition-all duration-200 shadow-[3px_3px_0px_0px_rgba(34,34,34,1)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[1px_1px_0px_0px_rgba(34,34,34,1)];
+  }
+
+  .btn-primary {
+    @apply bg-retro-teal text-white retro-btn;
+  }
+  
+  .btn-secondary {
+    @apply bg-retro-red text-white retro-btn;
+  }
+  
+  .btn-outline {
+    @apply bg-white border-2 border-retro-black text-retro-black retro-btn;
+  }
+
+  .retro-input {
+    @apply border-2 border-retro-black rounded-md px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-retro-teal;
+  }
+
+  .retro-select {
+    @apply retro-input appearance-none bg-no-repeat bg-[right_0.5rem_center] pr-8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23222222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
+  
+  .checkerboard-border {
+    position: relative;
+  }
+  
+  .checkerboard-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    @apply bg-checkerboard bg-checkerboard-sm bg-[length:10px_10px] rounded-lg -z-10;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+  }
+}
